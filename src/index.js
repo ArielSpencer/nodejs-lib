@@ -1,4 +1,5 @@
 const fs = require('fs'); // lib/fs.js
+const trataErros = require('./erros/funcoesErro')
 
 const caminhoArquivo = process.argv;
 const link = caminhoArquivo[2];
@@ -7,10 +8,8 @@ fs.readFile(link, 'utf-8', (err, data) => {
   try {
     if (err) throw err
     contaPalavras(data);
-  } catch (error) {
-    if (err.code === 'ENOENT')
-      console.log('Erro: verifique o caminho do arquivo.');
-    else console.log('Erro:', err.code);
+  } catch (erro) {
+    trataErros(erro)
   }
 })
 
