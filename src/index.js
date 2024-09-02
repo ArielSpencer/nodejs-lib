@@ -9,7 +9,7 @@ fs.readFile(link, 'utf-8', (err, data) => {
     if (err) throw err
     contaPalavras(data);
   } catch (erro) {
-    trataErros(erro)
+    console.log(trataErros(erro));
   }
 })
 
