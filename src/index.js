@@ -4,6 +4,10 @@ const caminhoArquivo = process.argv;
 const link = caminhoArquivo[2];
 
 fs.readFile(link, 'utf-8', (err, data) => {
+  if (err) {
+    console.log('Erro:', err.code);
+    return
+  }
   contaPalavras(data);
 })
 
